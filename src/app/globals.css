@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --ink-900: #1a1a2a;
+  --ink-700: #3b3b52;
+  --pink-50: #fff1f6;
+  --pink-100: #ffe3ee;
+  --pink-200: #ffc9df;
+  --peach-100: #ffe6d7;
+  --lavender-100: #ece7ff;
+  --glass: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.45);
+}
+
+@theme inline {
+  --color-background: var(--pink-50);
+  --color-foreground: var(--ink-900);
+  --font-sans: var(--font-primary);
+}
+
+body {
+  background:
+    radial-gradient(1200px 800px at 10% -10%, var(--pink-100), transparent 55%),
+    radial-gradient(900px 600px at 90% 10%, var(--lavender-100), transparent 50%),
+    radial-gradient(800px 600px at 40% 80%, var(--peach-100), transparent 45%),
+    var(--pink-50);
+  color: var(--ink-900);
+  font-family: var(--font-primary), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(255, 180, 210, 0.6);
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 24px 60px rgba(123, 70, 109, 0.12),
+    0 6px 18px rgba(123, 70, 109, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+.fade-up {
+  animation: fadeUp 0.9s ease both;
+}
+
+.floaty {
+  animation: floaty 8s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
