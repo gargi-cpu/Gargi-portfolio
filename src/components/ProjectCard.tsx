@@ -12,14 +12,14 @@ type ProjectCardProps = {
 
 function ArchitectureDiagram({ nodes }: { nodes: string[] }) {
   return (
-    <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-rose-800/80">
+    <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-[color:var(--text-soft)]">
       {nodes.map((node, index) => (
         <div key={`${node}-${index}`} className="flex items-center gap-2">
-          <span className="rounded-full border border-rose-200/80 bg-white/70 px-3 py-1 font-semibold uppercase tracking-[0.2em]">
+          <span className="rounded-md border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] px-3 py-1 font-medium uppercase tracking-[0.2em]">
             {node}
           </span>
           {index < nodes.length - 1 ? (
-            <span className="text-rose-400">→</span>
+            <span className="text-[color:var(--text-soft)]">→</span>
           ) : null}
         </div>
       ))}
@@ -39,19 +39,19 @@ export default function ProjectCard({
   github,
 }: ProjectCardProps) {
   return (
-    <article className="glass rounded-[36px] p-8">
+    <article className="panel rounded-2xl p-6">
       <div className="flex flex-col gap-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-600/70">
+        <p className="panel-title">
           {subtitle}
         </p>
-        <h3 className="text-2xl font-[var(--font-display)] text-rose-950">
+        <h3 className="text-xl font-semibold text-white">
           {title}
         </h3>
-        <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-rose-700/70">
+        <div className="flex flex-wrap gap-2 text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--text-soft)]">
           {tech.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-rose-200/70 bg-white/70 px-3 py-1"
+              className="rounded-md border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] px-3 py-1"
             >
               {item}
             </span>
@@ -59,35 +59,35 @@ export default function ProjectCard({
         </div>
       </div>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <div className="rounded-2xl border border-rose-100/80 bg-white/70 p-5 text-sm text-rose-900/80">
-          <p className="font-semibold text-rose-700">Problem</p>
+      <div className="mt-6 grid gap-4 lg:grid-cols-2">
+        <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4 text-sm text-[color:var(--text-muted)]">
+          <p className="font-semibold text-white">Problem</p>
           <p className="mt-2">{problem}</p>
         </div>
-        <div className="rounded-2xl border border-rose-100/80 bg-white/70 p-5 text-sm text-rose-900/80">
-          <p className="font-semibold text-rose-700">Solution</p>
+        <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4 text-sm text-[color:var(--text-muted)]">
+          <p className="font-semibold text-white">Solution</p>
           <p className="mt-2">{solution}</p>
         </div>
       </div>
 
       <div className="mt-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-600/70">
+        <p className="panel-title">
           Architecture
         </p>
         <ArchitectureDiagram nodes={architecture} />
       </div>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="rounded-2xl border border-rose-100/80 bg-white/70 p-5 text-sm text-rose-900/80">
-          <p className="font-semibold text-rose-700">Engineering Highlights</p>
+      <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4 text-sm text-[color:var(--text-muted)]">
+          <p className="font-semibold text-white">Engineering Highlights</p>
           <ul className="mt-2 space-y-2">
             {highlights.map((item) => (
               <li key={item}>• {item}</li>
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl border border-rose-100/80 bg-white/70 p-5 text-sm text-rose-900/80">
-          <p className="font-semibold text-rose-700">Skills Proved</p>
+        <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4 text-sm text-[color:var(--text-muted)]">
+          <p className="font-semibold text-white">Skills Proved</p>
           <ul className="mt-2 space-y-2">
             {skills.map((item) => (
               <li key={item}>• {item}</li>
@@ -95,7 +95,7 @@ export default function ProjectCard({
           </ul>
           {github ? (
             <a
-              className="mt-4 inline-flex rounded-full border border-rose-200/80 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-rose-700 transition hover:border-rose-300"
+              className="mt-4 inline-flex rounded-md border border-[color:var(--panel-accent)] px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--text-muted)] transition hover:border-[color:var(--accent)] hover:text-white"
               href={github}
               target="_blank"
               rel="noreferrer"

@@ -2,68 +2,56 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col gap-12">
-      <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="glass rounded-[32px] p-4">
+    <div className="grid gap-6 lg:grid-cols-2">
+      <section className="panel rounded-2xl p-6 lg:row-span-2">
+        <p className="panel-title">About</p>
+        <div className="mt-4 grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-3">
           <Image
             src="/images/gargi-casual.jpg"
             alt="Gargi Singh in a casual setting"
             width={640}
             height={900}
-            className="h-full w-full rounded-[26px] object-cover"
+              className="h-full w-full rounded-lg object-cover"
           />
-        </div>
-        <div className="flex flex-col gap-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-600/70">
-            About Me
-          </p>
-          <h1 className="text-3xl font-[var(--font-display)] text-rose-950">
-            Backend-first engineer with enterprise context.
-          </h1>
-          <p className="text-sm leading-relaxed text-rose-900/75">
-            I focus on clean architecture, dependable APIs, and systems that
-            withstand real traffic. My internships emphasized production
-            standards, structured data flows, and disciplined engineering.
-          </p>
+          </div>
+          <div className="space-y-3 text-sm text-[color:var(--text-muted)]">
+            <p className="text-white">Backend-first engineer with enterprise context.</p>
+            <p>
+              I focus on clean architecture, dependable APIs, and systems that
+              withstand real traffic. My internships emphasized production
+              standards, structured data flows, and disciplined engineering.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-2">
-        <div className="glass rounded-[28px] p-6">
-          <h2 className="text-lg font-[var(--font-display)] text-rose-950">
-            Education
-          </h2>
-          <ul className="mt-4 space-y-2 text-sm text-rose-900/75">
-            <li>• B.Tech Computer Science (2026) — Anand Engineering College</li>
-          </ul>
-        </div>
-        <div className="glass rounded-[28px] p-6">
-          <h2 className="text-lg font-[var(--font-display)] text-rose-950">
-            Internships
-          </h2>
-          <ul className="mt-4 space-y-2 text-sm text-rose-900/75">
-            <li>• Microsoft × SAP (TechSaksham AI) — AI &amp; Full-Stack Intern</li>
-            <li>• EY Global Delivery Services — Full-Stack Intern</li>
-          </ul>
-        </div>
-        <div className="glass rounded-[28px] p-6">
-          <h2 className="text-lg font-[var(--font-display)] text-rose-950">
-            Certifications
-          </h2>
-          <ul className="mt-4 space-y-2 text-sm text-rose-900/75">
-            <li>• Oracle OCI Developer (2025)</li>
-          </ul>
-        </div>
-        <div className="glass rounded-[28px] p-6">
-          <h2 className="text-lg font-[var(--font-display)] text-rose-950">
-            Currently Learning
-          </h2>
-          <ul className="mt-4 space-y-2 text-sm text-rose-900/75">
-            <li>• Kubernetes</li>
-            <li>• Microservices</li>
-            <li>• Async &amp; streaming systems</li>
-          </ul>
-        </div>
+      <section className="panel rounded-2xl p-6">
+        <p className="panel-title">Education</p>
+        <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-muted)]">
+          <li>• B.Tech Computer Science (2026) — Anand Engineering College</li>
+        </ul>
+      </section>
+      <section className="panel rounded-2xl p-6">
+        <p className="panel-title">Internships</p>
+        <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-muted)]">
+          <li>• Microsoft × SAP (TechSaksham AI) — AI Intern</li>
+          <li>• EY Global Delivery Services — Full-Stack Intern</li>
+        </ul>
+      </section>
+      <section className="panel rounded-2xl p-6">
+        <p className="panel-title">Certifications</p>
+        <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-muted)]">
+          <li>• Oracle OCI Developer (2025)</li>
+        </ul>
+      </section>
+      <section className="panel rounded-2xl p-6">
+        <p className="panel-title">Currently Learning</p>
+        <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-muted)]">
+          <li>• Kubernetes</li>
+          <li>• Microservices</li>
+          <li>• Async &amp; streaming systems</li>
+        </ul>
       </section>
     </div>
   );

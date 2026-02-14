@@ -1,12 +1,10 @@
 export const projects = [
   {
     title: "StockPulse",
-    subtitle: "Live market data backend for stock dashboards",
+    subtitle: "Backend system",
     tech: ["Java", "Spring Boot", "REST APIs", "Cloud-native architecture"],
-    problem:
-      "Stock dashboards often rely on dummy data, which hides real API latency, failures, and rate limits.",
-    solution:
-      "Implemented a real-time backend that pulls live public market APIs and exposes clean, stable endpoints.",
+    problem: "Real market data handling",
+    solution: "Backend-first architecture",
     architecture: [
       "Controller",
       "Service",
@@ -14,42 +12,38 @@ export const projects = [
       "External Market API",
     ],
     highlights: [
-      "Clean layered architecture with strict separation of concerns.",
-      "Actuator monitoring, CORS control, and config management built in.",
-      "Built for real data handling and reliable uptime.",
+      "Clean layered architecture.",
+      "Actuator, CORS, config management.",
+      "No dummy data.",
     ],
     skills: ["Backend design", "API scalability", "Real data handling"],
     github: "https://github.com/gargi-cpu/stockpulse",
   },
   {
     title: "Async Task Processing System",
-    subtitle: "Async pipelines with streaming responses",
+    subtitle: "Async pipelines",
     tech: ["Python", "FastAPI", "Async/Await", "Streaming APIs"],
-    problem:
-      "Synchronous task pipelines stall under load and block client feedback.",
-    solution:
-      "Built async workers with streaming responses to keep clients informed while workloads run.",
+    problem: "Why async matters",
+    solution: "Background workers + streaming",
     architecture: ["API Layer", "Async Queue", "Worker Pool", "Streaming Output"],
     highlights: [
-      "Async-first design to improve throughput under traffic.",
-      "Background workers with controlled concurrency.",
-      "Measured ~25% performance improvement in response handling.",
+      "Async execution model.",
+      "Streaming responses.",
+      "Performance improvement (~25%).",
     ],
     skills: ["Modern backend systems", "Async execution", "Streaming UX"],
     github: "",
   },
   {
     title: "Trading Portfolio Microservice",
-    subtitle: "Reliable service boundaries for portfolio data",
+    subtitle: "Portfolio microservice",
     tech: ["Java", "Spring Boot", "SQL"],
-    problem:
-      "Portfolio services need consistent data models and safe concurrent access.",
-    solution:
-      "Implemented a microservice with MVC and multithreaded processing for portfolio operations.",
+    problem: "Microservices + MVC",
+    solution: "Multithreading + error handling",
     architecture: ["Controller", "Service", "Repository", "SQL Store"],
     highlights: [
-      "Microservice design with clear ownership.",
-      "Multithreading with guarded error handling.",
+      "Microservice boundaries.",
+      "Threaded operations.",
       "Source code private due to internship confidentiality.",
     ],
     skills: ["Microservices", "Concurrency", "Error handling"],
@@ -57,17 +51,15 @@ export const projects = [
   },
   {
     title: "AI Speech Synthesis System",
-    subtitle: "Low-latency speech generation pipeline",
+    subtitle: "Streaming audio system",
     tech: ["Python", "FastAPI", "Streaming", "SQL"],
-    problem:
-      "Speech generation workflows are heavy and can block real-time use cases.",
-    solution:
-      "Designed a streaming pipeline to deliver partial audio outputs with minimal delay.",
+    problem: "Low latency speech output",
+    solution: "Async streaming pipeline",
     architecture: ["API Gateway", "Async Pipeline", "Audio Streamer", "SQL Store"],
     highlights: [
-      "Streaming audio for low-latency playback.",
-      "Async pipeline design with resilient handoff.",
-      "Built for consistent output under variable load.",
+      "Streaming audio.",
+      "Async pipeline.",
+      "Consistent output under load.",
     ],
     skills: ["Low latency", "Streaming audio", "Async pipelines"],
     github: "",

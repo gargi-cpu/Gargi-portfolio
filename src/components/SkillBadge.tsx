@@ -4,7 +4,7 @@ type SkillBadgeProps = {
 
 export default function SkillBadge({ label }: SkillBadgeProps) {
   return (
-    <span className="rounded-full border border-rose-200/70 bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-rose-700/80">
+    <span className="rounded-md border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] px-2 py-1 text-[0.65rem] font-medium uppercase tracking-[0.18em] text-[color:var(--text-soft)]">
       {label}
     </span>
   );
