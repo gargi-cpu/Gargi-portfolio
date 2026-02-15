@@ -1,57 +1,49 @@
 import Image from "next/image";
+import DecorativeOrb from "@/components/DecorativeOrb";
 
 export default function AboutPage() {
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
-      <section className="panel rounded-2xl p-6 lg:row-span-2">
+    <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <section className="panel gradient-border rounded-2xl p-6">
         <p className="panel-title">About</p>
-        <div className="mt-4 grid gap-6 md:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-3">
-          <Image
-            src="/images/gargi-casual.jpg"
-            alt="Gargi Singh in a casual setting"
-            width={640}
-            height={900}
-              className="h-full w-full rounded-lg object-cover"
-          />
+        <h1 className="section-heading mt-3">Engineering profile</h1>
+        <div className="mt-4 space-y-3 text-sm text-[color:var(--text-muted)]">
+          <p>
+            I build backend systems with a focus on API correctness, reliability, and clean architecture.
+            My internships emphasized production-ready development, testing discipline, and practical delivery.
+          </p>
+          <p>
+            Core areas include Java and Python backend development, REST APIs, async processing, and cloud fundamentals.
+          </p>
+          <p>
+            I am currently expanding depth in Kubernetes, microservices architecture, and resilient distributed systems.
+          </p>
+        </div>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-3 text-sm text-[color:var(--text-muted)]">
+            <p className="font-semibold text-white">Education</p>
+            <p className="mt-1">B.Tech Computer Science, Anand Engineering College (2026)</p>
           </div>
-          <div className="space-y-3 text-sm text-[color:var(--text-muted)]">
-            <p className="text-white">Backend-first engineer with enterprise context.</p>
-            <p>
-              I focus on clean architecture, dependable APIs, and systems that
-              withstand real traffic. My internships emphasized production
-              standards, structured data flows, and disciplined engineering.
-            </p>
+          <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-3 text-sm text-[color:var(--text-muted)]">
+            <p className="font-semibold text-white">Certification</p>
+            <p className="mt-1">Oracle OCI Developer (2025)</p>
           </div>
         </div>
       </section>
 
-      <section className="panel rounded-2xl p-6">
-        <p className="panel-title">Education</p>
-        <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-muted)]">
-          <li>• B.Tech Computer Science (2026) — Anand Engineering College</li>
-        </ul>
-      </section>
-      <section className="panel rounded-2xl p-6">
-        <p className="panel-title">Internships</p>
-        <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-muted)]">
-          <li>• Microsoft × SAP (TechSaksham AI) — AI Intern</li>
-          <li>• EY Global Delivery Services — Full-Stack Intern</li>
-        </ul>
-      </section>
-      <section className="panel rounded-2xl p-6">
-        <p className="panel-title">Certifications</p>
-        <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-muted)]">
-          <li>• Oracle OCI Developer (2025)</li>
-        </ul>
-      </section>
-      <section className="panel rounded-2xl p-6">
-        <p className="panel-title">Currently Learning</p>
-        <ul className="mt-4 space-y-2 text-sm text-[color:var(--text-muted)]">
-          <li>• Kubernetes</li>
-          <li>• Microservices</li>
-          <li>• Async &amp; streaming systems</li>
-        </ul>
+      <section className="grid gap-6">
+        <div className="panel gradient-border rounded-2xl p-4">
+          <Image
+            src="/images/gargi-casual.jpg"
+            alt="Gargi Singh"
+            width={560}
+            height={740}
+            className="h-full w-full rounded-xl object-cover"
+          />
+        </div>
+        <div className="panel gradient-border flex items-center justify-center rounded-2xl p-6">
+          <DecorativeOrb size={190} />
+        </div>
       </section>
     </div>
   );

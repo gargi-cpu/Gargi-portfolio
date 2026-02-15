@@ -1,3 +1,5 @@
+import { normalizeText } from "@/lib/normalizeText";
+
 type ProjectCardProps = {
   title: string;
   subtitle: string;
@@ -10,21 +12,9 @@ type ProjectCardProps = {
   github?: string;
 };
 
-function ArchitectureDiagram({ nodes }: { nodes: string[] }) {
-  return (
-    <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-[color:var(--text-soft)]">
-      {nodes.map((node, index) => (
-        <div key={`${node}-${index}`} className="flex items-center gap-2">
-          <span className="rounded-md border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] px-3 py-1 font-medium uppercase tracking-[0.2em]">
-            {node}
-          </span>
-          {index < nodes.length - 1 ? (
-            <span className="text-[color:var(--text-soft)]">→</span>
-          ) : null}
-        </div>
-      ))}
-    </div>
-  );
+function extractMetric(values: string[]): string {
+  const found = values.find((item) => /(\d+%|latency|throughput|stability|performance)/i.test(item));
+  return found ? normalizeText(found) : "Metric details are available on request.";
 }
 
 export default function ProjectCard({
@@ -39,71 +29,61 @@ export default function ProjectCard({
   github,
 }: ProjectCardProps) {
   return (
-    <article className="panel rounded-2xl p-6">
-      <div className="flex flex-col gap-3">
-        <p className="panel-title">
-          {subtitle}
-        </p>
-        <h3 className="text-xl font-semibold text-white">
-          {title}
-        </h3>
-        <div className="flex flex-wrap gap-2 text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--text-soft)]">
-          {tech.map((item) => (
-            <span
-              key={item}
-              className="rounded-md border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] px-3 py-1"
-            >
-              {item}
-            </span>
-          ))}
+    <article className="panel gradient-border rounded-2xl p-6">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="panel-title">Project</p>
+          <h3 className="mt-2 text-xl font-semibold text-white">
+            {normalizeText(title)}
+          </h3>
+          <p className="mt-1 text-sm text-[color:var(--text-muted)]">
+            {normalizeText(subtitle)}
+          </p>
         </div>
+        {github ? (
+          <a
+            className="rounded-md border border-[color:var(--panel-accent)] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--text-primary)] transition hover:border-[color:var(--accent)]"
+            href={github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+        ) : null}
       </div>
 
-      <div className="mt-6 grid gap-4 lg:grid-cols-2">
-        <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4 text-sm text-[color:var(--text-muted)]">
-          <p className="font-semibold text-white">Problem</p>
-          <p className="mt-2">{problem}</p>
-        </div>
-        <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4 text-sm text-[color:var(--text-muted)]">
-          <p className="font-semibold text-white">Solution</p>
-          <p className="mt-2">{solution}</p>
-        </div>
-      </div>
-
-      <div className="mt-6">
-        <p className="panel-title">
-          Architecture
-        </p>
-        <ArchitectureDiagram nodes={architecture} />
-      </div>
-
-      <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4 text-sm text-[color:var(--text-muted)]">
-          <p className="font-semibold text-white">Engineering Highlights</p>
-          <ul className="mt-2 space-y-2">
+      <div className="mt-5 grid gap-4">
+        <section className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-4 text-sm">
+          <p className="font-semibold text-white">Short problem statement</p>
+          <p className="mt-1 text-[color:var(--text-muted)]">
+            {normalizeText(problem)}
+          </p>
+        </section>
+        <section className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-4 text-sm">
+          <p className="font-semibold text-white">Solution and architecture</p>
+          <p className="mt-1 text-[color:var(--text-muted)]">
+            {normalizeText(solution)}
+          </p>
+          <p className="mt-2 text-xs uppercase tracking-[0.1em] text-[color:var(--text-soft)]">
+            Core flow: {architecture.map(normalizeText).join(" -> ")}
+          </p>
+        </section>
+        <section className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-4 text-sm text-[color:var(--text-muted)]">
+          <p className="font-semibold text-white">What I personally implemented</p>
+          <ul className="mt-2 space-y-1">
             {highlights.map((item) => (
-              <li key={item}>• {item}</li>
+              <li key={item}>- {normalizeText(item)}</li>
             ))}
           </ul>
-        </div>
-        <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4 text-sm text-[color:var(--text-muted)]">
-          <p className="font-semibold text-white">Skills Proved</p>
-          <ul className="mt-2 space-y-2">
-            {skills.map((item) => (
-              <li key={item}>• {item}</li>
-            ))}
-          </ul>
-          {github ? (
-            <a
-              className="mt-4 inline-flex rounded-md border border-[color:var(--panel-accent)] px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--text-muted)] transition hover:border-[color:var(--accent)] hover:text-white"
-              href={github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-          ) : null}
-        </div>
+        </section>
+        <section className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-4 text-sm text-[color:var(--text-muted)]">
+          <p className="font-semibold text-white">Key metrics</p>
+          <p className="mt-1">{extractMetric(highlights)}</p>
+          <p className="mt-3 font-semibold text-white">Key tech</p>
+          <p className="mt-1">{tech.map(normalizeText).join(", ")}</p>
+          <p className="mt-3 font-semibold text-white">Skills demonstrated</p>
+          <p className="mt-1">{skills.map(normalizeText).join(", ")}</p>
+        </section>
       </div>
     </article>
   );

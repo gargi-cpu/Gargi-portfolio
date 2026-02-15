@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --bg-deep: #12090c;
-  --bg-maroon: #1c0b11;
-  --panel: #0c0a0b;
-  --panel-border: #2a0f18;
-  --panel-accent: #3a121f;
-  --text-primary: #f4eef1;
-  --text-muted: #c7b7be;
-  --text-soft: #a4929a;
-  --accent: #a63244;
+  --bg-deep: #091525;
+  --bg-surface: #0f1f35;
+  --panel: #112946;
+  --panel-soft: #163455;
+  --panel-border: #234c79;
+  --panel-accent: #2d5f95;
+  --text-primary: #f3f8ff;
+  --text-muted: #c0d4eb;
+  --text-soft: #9fb8d3;
+  --accent: #4fa3ff;
 }
 
 @theme inline {
@@ -18,8 +19,8 @@
 
 body {
   background:
-    radial-gradient(800px 500px at 15% 10%, #2b0d16, transparent 55%),
-    radial-gradient(600px 420px at 90% 15%, #1e0b12, transparent 50%),
+    radial-gradient(700px 440px at 15% 10%, #1b3557, transparent 60%),
+    radial-gradient(580px 380px at 90% 12%, #172e4b, transparent 58%),
     var(--bg-deep);
   color: var(--text-primary);
   font-family: var(--font-primary), system-ui, sans-serif;
@@ -31,7 +32,7 @@ html {
 }
 
 ::selection {
-  background: rgba(166, 50, 68, 0.4);
+  background: rgba(79, 163, 255, 0.35);
   color: var(--text-primary);
 }
 
@@ -44,7 +45,21 @@ html {
 .panel-title {
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.2em;
   font-size: 0.7rem;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.section-heading {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.gradient-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--panel), var(--panel)) padding-box,
+    linear-gradient(135deg, #35689e, #264b72) border-box;
 }

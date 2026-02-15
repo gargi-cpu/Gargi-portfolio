@@ -1,167 +1,134 @@
 import Image from "next/image";
+import Link from "next/link";
+import DecorativeOrb from "@/components/DecorativeOrb";
 import SkillBadge from "@/components/SkillBadge";
-import { skillGroups } from "@/data/skills";
-import { projects } from "@/data/projects";
 import { experiences } from "@/data/experience";
+import { projects } from "@/data/projects";
+import { skillGroups } from "@/data/skills";
+import { normalizeText } from "@/lib/normalizeText";
 
 export default function Home() {
+  const featuredProjects = projects.slice(0, 2);
+
   return (
-    <div className="grid gap-6 lg:grid-cols-3">
-      <section className="panel rounded-2xl p-6 lg:col-span-2">
-        <p className="panel-title">Home</p>
-        <div className="mt-4 grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
-          <div className="space-y-3">
-            <h1 className="text-2xl font-semibold text-white">
-              Gargi Singh
-            </h1>
-            <p className="text-sm text-[color:var(--text-muted)]">
-              Software Developer (Fresher)
-            </p>
-            <p className="text-sm text-[color:var(--text-soft)]">
-              Java &amp; Python Backend
-            </p>
-            <p className="text-sm text-[color:var(--text-soft)]">
-              RESTful APIs • Cloud Fundamentals
-            </p>
-            <div className="pt-2 text-sm text-[color:var(--text-muted)]">
-              <p>Internships:</p>
-              <p>EY Global Delivery Services</p>
-              <p>Microsoft × SAP</p>
+    <div className="grid gap-6">
+      <section className="panel gradient-border grid gap-6 rounded-2xl p-6 lg:grid-cols-[1.25fr_0.75fr]">
+        <div className="space-y-4">
+          <p className="panel-title">Home</p>
+          <h1 className="section-heading">Gargi Singh</h1>
+          <p className="text-sm text-[color:var(--text-muted)]">
+            Backend and Full-Stack Developer focused on Java, Python, REST APIs, and cloud-native engineering.
+          </p>
+          <div className="grid gap-3 text-sm text-[color:var(--text-muted)] sm:grid-cols-2">
+            <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-3">
+              <p className="font-semibold text-white">Primary focus</p>
+              <p className="mt-1">Backend APIs, async systems, and microservice-ready architecture.</p>
             </div>
-            <a
-              className="mt-4 inline-flex rounded-md border border-[color:var(--panel-accent)] px-4 py-2 text-xs font-medium text-[color:var(--text-muted)] hover:border-[color:var(--accent)] hover:text-white"
+            <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-3">
+              <p className="font-semibold text-white">Current goal</p>
+              <p className="mt-1">Building production-quality systems with measurable reliability improvements.</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              className="rounded-md border border-[color:var(--panel-accent)] bg-[color:var(--panel-soft)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--text-primary)] hover:border-[color:var(--accent)]"
+              href="/projects"
+            >
+              View Projects
+            </Link>
+            <Link
+              className="rounded-md border border-[color:var(--panel-border)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--text-muted)] hover:text-white"
+              href="/contact"
+            >
+              Contact
+            </Link>
+            <Link
+              className="rounded-md border border-[color:var(--panel-border)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--text-muted)] hover:text-white"
               href="/Gargi_Singh_Resume.pdf"
             >
-              View Resume
-            </a>
+              Resume
+            </Link>
           </div>
-          <div className="flex items-start justify-start">
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-3">
             <Image
               src="/images/gargi-profile.jpg"
-              alt="Gargi Singh"
-              width={240}
-              height={280}
-              className="h-48 w-40 rounded-xl object-cover"
+              alt="Profile headshot of Gargi Singh"
+              width={360}
+              height={460}
+              className="h-52 w-full rounded-lg object-cover"
               priority
             />
           </div>
-        </div>
-      </section>
-
-      <section className="panel rounded-2xl p-6">
-        <p className="panel-title">About</p>
-        <div className="mt-4 space-y-3 text-sm text-[color:var(--text-muted)]">
-          <p>B.Tech Computer Science (2026) — Anand Engineering College</p>
-          <p>Internships at Microsoft × SAP and EY GDS</p>
-          <p>Oracle OCI Developer (2025)</p>
-          <p>Learning: Kubernetes, Microservices, Async &amp; streaming systems</p>
-        </div>
-      </section>
-
-      <section className="panel rounded-2xl p-6">
-        <p className="panel-title">Experience</p>
-        <div className="mt-4 space-y-4 text-sm text-[color:var(--text-muted)]">
-          <div>
-            <p className="text-white">EY Global Delivery Services</p>
-            <p>Full-Stack Intern | Feb–Mar 2025</p>
-            <p>• REST API integration</p>
-            <p>• Bug fixing &amp; testing (~10% stability gain)</p>
-          </div>
-          <div>
-            <p className="text-white">Microsoft × SAP (TechSaksham AI)</p>
-            <p>AI Intern | Jan–Feb 2025</p>
-            <p>• Backend API assistance</p>
-            <p>• Testing &amp; documentation</p>
+          <div className="hidden items-center justify-center rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-3 sm:flex">
+            <DecorativeOrb size={170} />
           </div>
         </div>
       </section>
 
-      <section className="panel rounded-2xl p-6 lg:col-span-2">
-        <p className="panel-title">Projects</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--bg-maroon)] p-4"
-            >
-              <p className="text-sm font-semibold text-white">
-                {project.title} — {project.subtitle}
-              </p>
-              <p className="mt-2 text-xs text-[color:var(--text-soft)]">
-                Tech: {project.tech.join(", ")}
-              </p>
-              <p className="mt-2 text-xs text-[color:var(--text-muted)]">
-                Problem: {project.problem}
-              </p>
-              <p className="mt-1 text-xs text-[color:var(--text-muted)]">
-                Solution: {project.solution}
-              </p>
-              <p className="mt-1 text-xs text-[color:var(--text-muted)]">
-                Highlight: {project.highlights[2] ?? project.highlights[0]}
-              </p>
-              {project.github ? (
-                <a
-                  className="mt-3 inline-flex text-xs text-[color:var(--text-muted)] hover:text-white"
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-              ) : null}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel rounded-2xl p-6">
-        <p className="panel-title">Skills</p>
-        <div className="mt-4 space-y-4 text-sm text-[color:var(--text-muted)]">
-          {skillGroups.map((group) => (
-            <div key={group.title}>
-              <p className="text-white">{group.title}</p>
-              <div className="mt-2 grid grid-cols-2 gap-2">
-                {group.skills.map((skill) => (
-                  <SkillBadge key={skill} label={skill} />
+      <section className="grid gap-6 lg:grid-cols-2">
+        <div className="panel gradient-border rounded-2xl p-6">
+          <p className="panel-title">Experience</p>
+          <div className="mt-4 space-y-4 text-sm text-[color:var(--text-muted)]">
+            {experiences.map((item) => (
+              <div key={item.company} className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-3">
+                <p className="font-semibold text-white">
+                  {normalizeText(item.company)} - {normalizeText(item.role)} - {normalizeText(item.period)}
+                </p>
+                {item.highlights.slice(0, 2).map((line) => (
+                  <p key={line} className="mt-1">
+                    - {normalizeText(line)}
+                  </p>
                 ))}
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <Link className="mt-4 inline-flex text-sm text-[color:var(--text-muted)] hover:text-white" href="/experience">
+            See full experience
+          </Link>
+        </div>
+
+        <div className="panel gradient-border rounded-2xl p-6">
+          <p className="panel-title">Skills</p>
+          <div className="mt-4 space-y-4">
+            {skillGroups.map((group) => (
+              <div key={group.title}>
+                <p className="text-sm font-semibold text-white">{normalizeText(group.title)}</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <SkillBadge key={`${group.title}-${skill}`} label={normalizeText(skill)} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <Link className="mt-4 inline-flex text-sm text-[color:var(--text-muted)] hover:text-white" href="/skills">
+            See full skills
+          </Link>
         </div>
       </section>
 
-      <section className="panel rounded-2xl p-6 lg:col-span-3">
-        <p className="panel-title">Contact</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-3 text-sm text-[color:var(--text-muted)]">
-          <div>
-            <p className="text-white">Email</p>
-            <a className="hover:text-white" href="mailto:gargi9608@gmail.com">
-              gargi9608@gmail.com
-            </a>
-          </div>
-          <div>
-            <p className="text-white">LinkedIn</p>
-            <a
-              className="hover:text-white"
-              href="https://www.linkedin.com/in/gargi-singh-62ab82315/"
-              target="_blank"
-              rel="noreferrer"
+      <section className="panel gradient-border rounded-2xl p-6">
+        <p className="panel-title">Projects</p>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          {featuredProjects.map((project) => (
+            <article
+              key={project.title}
+              className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-4 text-sm text-[color:var(--text-muted)]"
             >
-              Profile
-            </a>
-          </div>
-          <div>
-            <p className="text-white">GitHub</p>
-            <a
-              className="hover:text-white"
-              href="https://github.com/gargi-cpu"
-              target="_blank"
-              rel="noreferrer"
-            >
-              github.com/gargi-cpu
-            </a>
-          </div>
+              <p className="font-semibold text-white">{normalizeText(project.title)}</p>
+              <p className="mt-1">{normalizeText(project.problem)}</p>
+              <p className="mt-2 text-[color:var(--text-soft)]">
+                {project.tech.map(normalizeText).join(", ")}
+              </p>
+            </article>
+          ))}
         </div>
+        <Link className="mt-4 inline-flex text-sm text-[color:var(--text-muted)] hover:text-white" href="/projects">
+          See full project details
+        </Link>
       </section>
     </div>
   );
