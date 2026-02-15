@@ -1,4 +1,6 @@
 import { normalizeText } from "@/lib/normalizeText";
+import ProjectScreenshot from "@/components/ProjectScreenshot";
+import { projectScreenshotMap } from "@/data/projectAssets";
 
 type ProjectCardProps = {
   title: string;
@@ -28,6 +30,8 @@ export default function ProjectCard({
   skills,
   github,
 }: ProjectCardProps) {
+  const screenshot = projectScreenshotMap[title];
+
   return (
     <article className="panel gradient-border rounded-2xl p-6">
       <div className="flex items-start justify-between gap-3">
@@ -53,6 +57,12 @@ export default function ProjectCard({
       </div>
 
       <div className="mt-5 grid gap-4">
+        {screenshot ? (
+          <ProjectScreenshot
+            src={screenshot}
+            alt={`${normalizeText(title)} project screenshot`}
+          />
+        ) : null}
         <section className="rounded-xl border border-[color:var(--panel-border)] bg-[color:var(--panel-soft)] p-4 text-sm">
           <p className="font-semibold text-white">Short problem statement</p>
           <p className="mt-1 text-[color:var(--text-muted)]">

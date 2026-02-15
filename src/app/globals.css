@@ -6,11 +6,11 @@
   --panel: #112946;
   --panel-soft: #163455;
   --panel-border: #234c79;
-  --panel-accent: #2d5f95;
+  --panel-accent: #40658e;
   --text-primary: #f3f8ff;
   --text-muted: #c0d4eb;
   --text-soft: #9fb8d3;
-  --accent: #4fa3ff;
+  --accent: #79a6d4;
 }
 
 @theme inline {
@@ -19,8 +19,8 @@
 
 body {
   background:
-    radial-gradient(700px 440px at 15% 10%, #1b3557, transparent 60%),
-    radial-gradient(580px 380px at 90% 12%, #172e4b, transparent 58%),
+    radial-gradient(700px 440px at 15% 10%, #1a304b, transparent 60%),
+    radial-gradient(580px 380px at 90% 12%, #162a42, transparent 58%),
     var(--bg-deep);
   color: var(--text-primary);
   font-family: var(--font-primary), system-ui, sans-serif;
@@ -32,7 +32,7 @@ html {
 }
 
 ::selection {
-  background: rgba(79, 163, 255, 0.35);
+  background: rgba(121, 166, 212, 0.35);
   color: var(--text-primary);
 }
 
@@ -61,5 +61,5 @@ html {
   border: 1px solid transparent;
   background:
     linear-gradient(var(--panel), var(--panel)) padding-box,
-    linear-gradient(135deg, #35689e, #264b72) border-box;
+    linear-gradient(135deg, #3a5d82, #2a4463) border-box;
 }

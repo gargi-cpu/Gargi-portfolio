@@ -34,7 +34,7 @@ export default function AboutPage() {
       <section className="grid gap-6">
         <div className="panel gradient-border rounded-2xl p-4">
           <Image
-            src="/images/gargi-casual.jpg"
+            src="/images/gargi-profile.jpg"
             alt="Gargi Singh"
             width={560}
             height={740}

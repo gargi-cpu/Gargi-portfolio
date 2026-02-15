@@ -53,7 +53,7 @@ export default function ContactPage() {
             className="mt-4 inline-flex rounded-md border border-[color:var(--panel-accent)] bg-[color:var(--panel-soft)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--text-primary)] transition hover:border-[color:var(--accent)]"
             href="/Gargi_Singh_Resume.pdf"
           >
-            Open Resume PDF
+            Resume
           </a>
         </article>
       </section>
